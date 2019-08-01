@@ -8,14 +8,17 @@ class HomePage extends StatelessWidget {
         title: Text('Hello Flutter'),
         centerTitle: true,
       ),
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
+  _body(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Container(
+      width: size.width,
       color: Colors.yellow,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
