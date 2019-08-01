@@ -15,8 +15,9 @@ class HomePage extends StatelessWidget {
   _body() {
     return Container(
       color: Colors.yellow,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           _button(),
           _button(),
