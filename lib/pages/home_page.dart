@@ -1,4 +1,6 @@
 import 'package:aula01/pages/hello_page1.dart';
+import 'package:aula01/pages/hello_page2.dart';
+import 'package:aula01/pages/hello_page3.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -49,36 +51,47 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button(context, 'ListView'),
-            _button(context, 'Page 2'),
-            _button(context, 'Page 3'),
+            _button(context, 'ListView',
+                () => _onClickNavigator(context, HelloPage1())),
+            _button(context, 'Page 2',
+                () => _onClickNavigator(context, HelloPage2())),
+            _button(context, 'Page 3',
+                () => _onClickNavigator(context, HelloPage3())),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button(context, 'Snack'),
-            _button(context, 'Dialog'),
-            _button(context, 'Toast'),
+            _button(context, 'Snack', _onClickSnack()),
+            _button(context, 'Dialog', _onClickDialog()),
+            _button(context, 'Toast', _onClickToast()),
           ],
         )
       ],
     );
   }
 
-  _button(BuildContext context, String text) {
+  void _onClickNavigator(BuildContext context, Widget page) {
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+      return page;
+    }));
+  }
+
+  Function _onClickSnack() {}
+
+  Function _onClickDialog() {}
+
+  Function _onClickToast() {}
+
+  _button(BuildContext context, String text, Function onPressed) {
     return RaisedButton(
       color: Colors.blue,
-      onPressed: () => _onClickOk(context),
+      onPressed: onPressed,
       child: Text(
         text,
         style: TextStyle(color: Colors.white, fontSize: 20),
       ),
     );
-  }
-
-  void _onClickOk(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => HelloPage1()));
   }
 
   _img(String img) {
