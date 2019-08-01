@@ -8,25 +8,20 @@ class HomePage extends StatelessWidget {
         title: Text('Hello Flutter'),
         centerTitle: true,
       ),
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.yellow,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _text(),
-            _pageView(),
-            _buttons(),
-            _text(),
-            _pageView(),
-            _buttons(),
-          ],
-        ),
+  _body(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _text(),
+          _pageView(),
+          _buttons(context),
+        ],
       ),
     );
   }
@@ -47,33 +42,33 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Column _buttons() {
+  Column _buttons(BuildContext context) {
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('ListView'),
-            _button('Page 2'),
-            _button('Page 3'),
+            _button(context, 'ListView'),
+            _button(context, 'Page 2'),
+            _button(context, 'Page 3'),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button('Snack'),
-            _button('Dialog'),
-            _button('Toast'),
+            _button(context, 'Snack'),
+            _button(context, 'Dialog'),
+            _button(context, 'Toast'),
           ],
         )
       ],
     );
   }
 
-  _button(String text) {
+  _button(BuildContext context, String text) {
     return RaisedButton(
       color: Colors.blue,
-      onPressed: () => _onClickOk(),
+      onPressed: () => _onClickOk(context),
       child: Text(
         text,
         style: TextStyle(color: Colors.white, fontSize: 20),
@@ -81,8 +76,8 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _onClickOk() {
-    print('Clicou no botão');
+  void _onClickOk(BuildContext context) {
+    Navigator.push(context, route);
   }
 
   _img(String img) {
