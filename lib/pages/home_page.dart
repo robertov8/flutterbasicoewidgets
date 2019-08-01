@@ -8,23 +8,19 @@ class HomePage extends StatelessWidget {
         title: Text('Hello Flutter'),
         centerTitle: true,
       ),
-      body: _body(context),
+      body: _body(),
     );
   }
 
-  _body(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
+  _body() {
     return Container(
-      width: size.width,
-      color: Colors.yellow,
+      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _button(),
-          _button(),
-          _button(),
+          _text(),
+          _img(),
+          _button()
         ],
       ),
     );
@@ -47,7 +43,7 @@ class HomePage extends StatelessWidget {
 
   _img() {
     return Image.asset(
-      'assets/images/dog4.png',
+      'assets/images/dog1.png',
       fit: BoxFit.cover,
     );
   }
