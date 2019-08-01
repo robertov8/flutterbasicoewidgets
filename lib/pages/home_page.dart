@@ -19,34 +19,49 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _text(),
-          _img(),
+          _pageView(),
           _buttons()
         ],
       ),
     );
   }
 
+  Container _pageView() {
+    return Container(
+          height: 300,
+          child: PageView(
+            children: <Widget>[
+              _img('assets/images/dog1.png'),
+              _img('assets/images/dog2.png'),
+              _img('assets/images/dog3.png'),
+              _img('assets/images/dog4.png'),
+              _img('assets/images/dog5.png'),
+            ],
+          ),
+        );
+  }
+
   Column _buttons() {
     return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                _button('ListView'),
-                _button('Page 2'),
-                _button('Page 3'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                _button('Snack'),
-                _button('Dialog'),
-                _button('Toast'),
-              ],
-            )
+            _button('ListView'),
+            _button('Page 2'),
+            _button('Page 3'),
           ],
-        );
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            _button('Snack'),
+            _button('Dialog'),
+            _button('Toast'),
+          ],
+        )
+      ],
+    );
   }
 
   _button(String text) {
@@ -64,9 +79,9 @@ class HomePage extends StatelessWidget {
     print('Clicou no botão');
   }
 
-  _img() {
+  _img(String img) {
     return Image.asset(
-      'assets/images/dog1.png',
+      img,
       fit: BoxFit.cover,
     );
   }
