@@ -14,14 +14,18 @@ class HomePage extends StatelessWidget {
 
   _body() {
     return Container(
-      color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _text(),
-          _pageView(),
-          _buttons(),
-        ],
+      color: Colors.green,
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        color: Colors.yellow,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _text(),
+            _pageView(),
+            _buttons(),
+          ],
+        ),
       ),
     );
   }
