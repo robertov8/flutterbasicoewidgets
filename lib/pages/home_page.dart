@@ -15,10 +15,25 @@ class HomePage extends StatelessWidget {
   _body() {
     return Container(
       color: Colors.white,
-      child: SizedBox.expand(
-        child: _img(),
+      child: Center(
+        child: _button(),
       ),
     );
+  }
+
+  _button() {
+    return RaisedButton(
+      color: Colors.blue,
+      onPressed: () => _onClickOk(),
+      child: Text(
+        'Ok',
+        style: TextStyle(color: Colors.white, fontSize: 30),
+      ),
+    );
+  }
+
+  void _onClickOk() {
+    print('Clicou no botão');
   }
 
   _img() {
