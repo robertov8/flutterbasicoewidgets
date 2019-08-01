@@ -20,19 +20,42 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           _text(),
           _img(),
-          _button()
+          _buttons()
         ],
       ),
     );
   }
 
-  _button() {
+  Column _buttons() {
+    return Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                _button('ListView'),
+                _button('Page 2'),
+                _button('Page 3'),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                _button('Snack'),
+                _button('Dialog'),
+                _button('Toast'),
+              ],
+            )
+          ],
+        );
+  }
+
+  _button(String text) {
     return RaisedButton(
       color: Colors.blue,
       onPressed: () => _onClickOk(),
       child: Text(
-        'Ok',
-        style: TextStyle(color: Colors.white, fontSize: 30),
+        text,
+        style: TextStyle(color: Colors.white, fontSize: 20),
       ),
     );
   }
