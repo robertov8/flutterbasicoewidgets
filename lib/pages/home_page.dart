@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           _text(),
           _pageView(),
-          _buttons()
+          _buttons(),
         ],
       ),
     );
@@ -28,17 +28,18 @@ class HomePage extends StatelessWidget {
 
   Container _pageView() {
     return Container(
-          height: 300,
-          child: PageView(
-            children: <Widget>[
-              _img('assets/images/dog1.png'),
-              _img('assets/images/dog2.png'),
-              _img('assets/images/dog3.png'),
-              _img('assets/images/dog4.png'),
-              _img('assets/images/dog5.png'),
-            ],
-          ),
-        );
+      margin: EdgeInsets.all(20),
+      height: 300,
+      child: PageView(
+        children: <Widget>[
+          _img('assets/images/dog1.png'),
+          _img('assets/images/dog2.png'),
+          _img('assets/images/dog3.png'),
+          _img('assets/images/dog4.png'),
+          _img('assets/images/dog5.png'),
+        ],
+      ),
+    );
   }
 
   Column _buttons() {
