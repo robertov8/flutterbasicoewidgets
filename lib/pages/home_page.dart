@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               BlueButton('Snack', onPressed: () => _onClickSnack(context)),
-              BlueButton('Dialog', onPressed: _onClickDialog(context)),
+              BlueButton('Dialog', onPressed: () => _onClickDialog(context)),
               BlueButton('Toast', onPressed: _onClickToast(context)),
             ],
           )
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
     print('>> $s');
   }
 
-  Function _onClickSnack(BuildContext context) {
+  _onClickSnack(BuildContext context) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text('Olá Flutter'),
       action: SnackBarAction(
@@ -97,7 +97,29 @@ class HomePage extends StatelessWidget {
     ));
   }
 
-  Function _onClickDialog(BuildContext context) {}
+  _onClickDialog(BuildContext context) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return WillPopScope(
+            onWillPop: () async => false,
+            child: AlertDialog(
+              title: Text('Flutter é muito legal'),
+              actions: <Widget>[
+                FlatButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('Cancelar'),
+                ),
+                FlatButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text('OK'),
+                )
+              ],
+            ),
+          );
+        });
+  }
 
   Function _onClickToast(BuildContext context) {}
 
