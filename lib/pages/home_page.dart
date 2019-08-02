@@ -1,6 +1,7 @@
 import 'package:aula01/pages/hello_page1.dart';
 import 'package:aula01/pages/hello_page2.dart';
 import 'package:aula01/pages/hello_page3.dart';
+import 'package:aula01/utils/nav.dart';
 import 'package:aula01/widgets/blue_button.dart';
 import 'package:flutter/material.dart';
 
@@ -70,11 +71,9 @@ class HomePage extends StatelessWidget {
   }
 
   void _onClickNavigator(BuildContext context, Widget page) async {
-    String s = await Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-      return page;
-    }));
+    String s = await push(context, page);
 
-    print(s);
+    print('>> $s');
   }
 
   Function _onClickSnack() {}
