@@ -7,24 +7,29 @@ class HelloListView extends StatelessWidget {
       appBar: AppBar(
         title: Text('ListView'),
       ),
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
-    return ListView(
+  _body(BuildContext context) {
+    List<Image> imgs = [
+      _img('assets/images/dog1.png'),
+      _img('assets/images/dog2.png'),
+      _img('assets/images/dog3.png'),
+      _img('assets/images/dog4.png'),
+      _img('assets/images/dog5.png'),
+    ];
+
+    return ListView.builder(
+      itemCount: imgs.length,
       itemExtent: 350,
-      children: <Widget>[
-        _img('assets/images/dog1.png'),
-        _img('assets/images/dog2.png'),
-        _img('assets/images/dog3.png'),
-        _img('assets/images/dog4.png'),
-        _img('assets/images/dog5.png'),
-      ],
+      itemBuilder: (context, index) {
+        return imgs[index];
+      },
     );
   }
 
-  _img(String img) {
+  Image _img(String img) {
     return Image.asset(
       img,
       fit: BoxFit.cover,
