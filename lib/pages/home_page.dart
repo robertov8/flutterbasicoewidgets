@@ -11,22 +11,36 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Hello Flutter'),
-        centerTitle: true,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello Flutter'),
+          centerTitle: true,
+          bottom: TabBar(tabs: [
+            Tab(text: 'TAB 1'),
+            Tab(text: 'TAB 2'),
+            Tab(text: 'TAB 3')
+          ]),
+        ),
+        body: TabBarView(
+          children: [
+            _body(context),
+            Container(color: Colors.green),
+            Container(color: Colors.yellow),
+          ],
+        ),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+              onPressed: () => _onClickFAB(),
+              child: Icon(Icons.add),
+            ),
+          ],
+        ),
+        drawer: DrawerList(),
       ),
-      body: _body(context),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            onPressed: () => _onClickFAB(),
-            child: Icon(Icons.add),
-          ),
-        ],
-      ),
-      drawer: DrawerList(),
     );
   }
 
