@@ -16,14 +16,32 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: _body(context),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: () => _onClickFAB(),
+            child: Icon(Icons.add),
+          ),
+          SizedBox(
+            width: 8,
+            height: 8,
+          ),
+          FloatingActionButton(
+            onPressed: () => _onClickFAB(),
+            child: Icon(Icons.favorite),
+          )
+        ],
+      ),
     );
   }
 
   _body(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 16),
       color: Colors.white,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           _text(),
           _pageView(),
@@ -124,13 +142,13 @@ class HomePage extends StatelessWidget {
 
   _onClickToast(BuildContext context) {
     Fluttertoast.showToast(
-        msg: "Flutter é muito legal",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIos: 1,
-        backgroundColor: Colors.green,
-        textColor: Colors.white,
-        fontSize: 16.0
+      msg: "Flutter é muito legal",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIos: 1,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 16.0,
     );
   }
 
@@ -154,5 +172,9 @@ class HomePage extends StatelessWidget {
         decorationStyle: TextDecorationStyle.wavy,
       ),
     );
+  }
+
+  _onClickFAB() {
+    print('Adicionar');
   }
 }
