@@ -23,16 +23,9 @@ class HomePage extends StatelessWidget {
             onPressed: () => _onClickFAB(),
             child: Icon(Icons.add),
           ),
-          SizedBox(
-            width: 8,
-            height: 8,
-          ),
-          FloatingActionButton(
-            onPressed: () => _onClickFAB(),
-            child: Icon(Icons.favorite),
-          )
         ],
       ),
+      drawer: Drawer(),
     );
   }
 
