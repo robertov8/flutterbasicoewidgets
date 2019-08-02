@@ -1,3 +1,4 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:aula01/pages/hello_listview.dart';
 import 'package:aula01/pages/hello_page1.dart';
 import 'package:aula01/pages/hello_page2.dart';
@@ -71,7 +72,7 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               BlueButton('Snack', onPressed: () => _onClickSnack(context)),
               BlueButton('Dialog', onPressed: () => _onClickDialog(context)),
-              BlueButton('Toast', onPressed: _onClickToast(context)),
+              BlueButton('Toast', onPressed: () => _onClickToast(context)),
             ],
           )
         ],
@@ -121,7 +122,17 @@ class HomePage extends StatelessWidget {
         });
   }
 
-  Function _onClickToast(BuildContext context) {}
+  _onClickToast(BuildContext context) {
+    Fluttertoast.showToast(
+        msg: "Flutter é muito legal",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
 
   _img(String img) {
     return Image.asset(
