@@ -1,3 +1,4 @@
+import 'package:aula01/drawer_list.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:aula01/pages/hello_listview.dart';
 import 'package:aula01/pages/hello_page1.dart';
@@ -25,7 +26,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: DrawerList(),
     );
   }
 
