@@ -13,6 +13,16 @@ class HelloListView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('ListView'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.list),
+            onPressed: () => print('Lista'),
+          ),
+          IconButton(
+            icon: Icon(Icons.grid_on),
+            onPressed: () => print('Grid'),
+          )
+        ],
       ),
       body: _body(context),
     );
@@ -29,7 +39,8 @@ class HelloListView extends StatelessWidget {
 
     return GridView.builder(
       itemCount: dogs.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
         Dog dog = dogs[index];
 
@@ -43,9 +54,8 @@ class HelloListView extends StatelessWidget {
                 margin: EdgeInsets.all(12),
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.black45,
-                  borderRadius: BorderRadius.circular(16)
-                ),
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(16)),
                 child: Text(
                   dog.nome,
                   style: TextStyle(fontSize: 26, color: Colors.white),
