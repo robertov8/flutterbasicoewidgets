@@ -7,6 +7,24 @@ class HelloPage3 extends StatelessWidget {
       appBar: AppBar(
         title: Text('Page 3'),
       ),
+      body: _body(context),
     );
+  }
+
+  _body(BuildContext context) {
+    return Center(
+      child: RaisedButton(
+        color: Colors.blue,
+        child: Text(
+          'Voltar',
+          style: TextStyle(color: Colors.white),
+        ),
+        onPressed: () => _onClickBack(context),
+      ),
+    );
+  }
+
+  _onClickBack(BuildContext context) {
+    Navigator.pop(context, "Tela 3");
   }
 }
